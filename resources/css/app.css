@@ -1,11 +1,113 @@
-@import 'tailwindcss';
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+.main-content {
+    max-width: 1200px; /* Limit the content width */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 0; /* Remove rounded corners */
+    box-shadow: none; /* Remove shadow */
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+}
+
+.search-bar {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 200px; /* Prevent the search bar from shrinking too much */
+}
+
+.category-dropdown {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-width: 150px; /* Prevent the dropdown from shrinking too much */
+}
+
+.btn-search {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+.bookmark-table {
+    width: 100%; /* Ensure the table spans the full width */
+    border-collapse: collapse;
+    overflow-x: auto; /* Allow horizontal scrolling for the table if needed */
+}
+
+.bookmark-table th,
+.bookmark-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    word-wrap: break-word; /* Prevent text from overflowing */
+}
+
+.bookmark-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.bookmark-table a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.bookmark-table a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #a71d2a;
 }

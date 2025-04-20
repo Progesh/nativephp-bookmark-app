@@ -3,7 +3,7 @@
 use App\Http\Controllers\BookmarkController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn() => view('bookmark'));
+Route::get('/', fn() => view('app'));
 
 Route::get('/urls', [BookmarkController::class, 'index']);
 Route::post('/urls', [BookmarkController::class, 'store']);
