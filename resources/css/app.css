@@ -78,7 +78,7 @@ h1 {
 }
 
 .bookmark-table a {
-    color: #007bff;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -87,16 +87,26 @@ h1 {
 }
 
 .btn {
-    padding: 5px 10px;
+    padding: 10px 15px;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    color: #fff;
     font-size: 14px;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
 }
 
 .btn-edit {
     background-color: #007bff;
-    color: #fff;
 }
 
 .btn-edit:hover {
@@ -105,9 +115,112 @@ h1 {
 
 .btn-delete {
     background-color: #dc3545;
-    color: #fff;
 }
 
 .btn-delete:hover {
     background-color: #a71d2a;
+}
+
+.alert {
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Form Section */
+.form-section {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+    font-size: 16px;
+    margin-left: 0px;
+}
+
+.btn-icon:hover {
+    color: #0056b3;
+}
+
+/* Notification for copy-to-clipboard */
+.copy-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    z-index: 1000;
+    animation: fadeInOut 2s ease-in-out;
+}
+
+/* Fade-in and fade-out animation */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
 }
