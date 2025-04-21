@@ -69,8 +69,8 @@
                         @endif
                     </td>
                     <td>
-                        @if(!empty($bookmark->password))
-                            <span class="password" id="password-{{ $bookmark->id }}">••••••••</span>
+                        @if (!empty($bookmark->password))
+                            <span class="password" id="password-{{ $bookmark->id }}" data-password="{{ $bookmark->password }}">••••••••</span>
                             <button type="button" class="btn-icon" onclick="togglePassword({{ $bookmark->id }})">
                                 <i class="fa fa-eye"></i>
                             </button>
@@ -96,22 +96,28 @@
 <script>
     function togglePassword(id) {
         const passwordSpan = document.getElementById(`password-${id}`);
+        if (!passwordSpan) {
+            console.error(`Password span for bookmark ID ${id} not found.`);
+            return;
+        }
+
         const isHidden = passwordSpan.textContent === '••••••••';
 
         if (isHidden) {
-            passwordSpan.textContent = '{{ $bookmark->password }}'; // Replace with the actual password
+            const actualPassword = passwordSpan.getAttribute('data-password'); // Retrieve the password
+            passwordSpan.textContent = actualPassword || '••••••••'; // Fallback to hidden if no password
         } else {
             passwordSpan.textContent = '••••••••';
         }
     }
 
     function copyToClipboard(text) {
-    navigator.clipboard.writeText(text).then(() => {
-        showCopyNotification('Copied to clipboard!');
-    }).catch(err => {
-        console.error('Failed to copy: ', err);
-    });
-}
+        navigator.clipboard.writeText(text).then(() => {
+            showCopyNotification('Copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
 
     function showCopyNotification(message) {
         // Create a notification element
