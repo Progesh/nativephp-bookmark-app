@@ -17,8 +17,8 @@ class BookmarkController extends Controller
 
         // Apply search filter if a search term is provided
         if ($request->has('search') && $request->search != '') {
-            $query->where('url', 'like', '%' . $request->search . '%')
-                ->orWhere('username', 'like', '%' . $request->search . '%');
+            $query->where('url', 'like', '%'.$request->search.'%')
+                ->orWhere('username', 'like', '%'.$request->search.'%');
         }
 
         // Apply category filter if a category is selected
@@ -31,12 +31,14 @@ class BookmarkController extends Controller
 
         return view('bookmarks.index', compact('bookmarks', 'categories'));
     }
+
     /**
      * Show the form for creating a new bookmark.
      */
     public function create()
     {
         $categories = Category::all();
+
         return view('bookmarks.create', compact('categories'));
     }
 
@@ -53,6 +55,7 @@ class BookmarkController extends Controller
         ]);
 
         Bookmark::create($data);
+
         return redirect()->route('urls.index')->with('success', 'Bookmark created successfully.');
     }
 
@@ -63,6 +66,7 @@ class BookmarkController extends Controller
     {
         $bookmark = Bookmark::findOrFail($id);
         $categories = Category::all();
+
         return view('bookmarks.create', compact('bookmark', 'categories'));
     }
 
@@ -72,7 +76,7 @@ class BookmarkController extends Controller
     public function update(Request $request, int $id)
     {
         $bookmark = Bookmark::findOrFail($id);
-        if (!$bookmark) {
+        if (! $bookmark) {
             return redirect()->route('urls.index')->with('error', 'Bookmark not found.');
         }
 
@@ -94,11 +98,12 @@ class BookmarkController extends Controller
     public function destroy(int $id)
     {
         $bookmark = Bookmark::findOrFail($id);
-        if (!$bookmark) {
+        if (! $bookmark) {
             return redirect()->route('urls.index')->with('error', 'Bookmark not found.');
         }
 
         $bookmark->delete();
+
         return redirect()->route('urls.index')->with('success', 'Bookmark deleted successfully.');
     }
 }
