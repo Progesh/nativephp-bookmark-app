@@ -48,10 +48,10 @@ cd nativephp-bookmark-app
 
 composer install
 npm install
-cp [.env.example](http://_vscodecontentref_/2) .env
+cp .env.example .env
 # Configure your .env file as needed (e.g., database settings)
 php artisan key:generate
-touch [database.sqlite](http://_vscodecontentref_/3)
+touch database/database.sqlite
 php artisan migrate
 ```
 
@@ -60,6 +60,7 @@ php artisan migrate
 ## 🧪 Run the App (Development Mode)
 
 ```bash
+npm run build
 php artisan native:serve
 ```
 
