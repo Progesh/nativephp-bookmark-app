@@ -48,7 +48,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($bookmarks as $bookmark)
+            @forelse ($bookmarks as $bookmark)
                 <tr data-category="{{ $bookmark->category->id ?? 'none' }}">
                     <td>{{ $bookmark->id }}</td>
                     <td>{{ $bookmark->category->name ?? 'Uncategorized' }}</td>
